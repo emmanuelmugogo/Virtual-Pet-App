@@ -8,7 +8,7 @@ public class VirtualPet {
 	private int sleepy = 0;
 	private int hungry = 0;
 	
-	final String name = "TEDDY";
+	final String name = "TEDDY the BEAR";
 	final String color = "WHITE";
 	final int age = 13;
 	
@@ -19,6 +19,14 @@ public class VirtualPet {
 		return random.nextInt(12) + 1;
 	}
 	
+	public void tick() {
+		thirsty += getRandomNum();
+		sleepy += getRandomNum();
+		hungry += getRandomNum();
+	}
+	
+	//getters
+	
 	public int getThirsty() {
 		return thirsty;
 	}
@@ -27,15 +35,17 @@ public class VirtualPet {
 		return sleepy;
 	}
 	
-	public void sleep() {
+	
+	public int getHungry() {
+		return hungry;
+	}
+	
+	public void goToSleep() {
 		sleepy-= 5;
 		hungry += 5;
 		thirsty += 3;
 	}
 	
-	public int getHungry() {
-		return hungry;
-	}
 	
 	public void feedBear() {
 		hungry -= 8;
@@ -45,17 +55,13 @@ public class VirtualPet {
 	
 	public void drinkWater() {
 		thirsty -= 4;
+		hungry -= 1;
 		sleepy -= 2;
 	}
 	
-	public void tick() {
-		thirsty += getRandomNum();
-		sleepy += getRandomNum();
-		hungry += getRandomNum();
-	}
 	
 	
-	public static void teddybear() {
+	public void teddybear() {
 		System.out.println("            ___   .--. ");
 		System.out.println("      .--.-\"   \"-' .- |");
 		System.out.println("     / .-,`          .'");
